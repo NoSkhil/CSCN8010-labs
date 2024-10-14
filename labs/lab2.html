@@ -7514,7 +7514,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [580]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [609]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Diabetes Progression Prediction Model</span>
@@ -7533,6 +7533,7 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_absolute_percentage_error</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span><span class="p">,</span> <span class="n">f_regression</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
 
 <span class="c1"># Random seed for reproducibility</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -7557,7 +7558,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [581]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [610]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">diabetes</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -7604,7 +7605,7 @@ this is a continuous value. Therefore, therefore we can use regression to predic
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [582]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [611]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create the dataframe containing the features and the target column</span>
@@ -7726,7 +7727,7 @@ Name: bmi, dtype: float64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [583]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [612]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Splitting data into Train, test and validate sets.</span>
@@ -7778,14 +7779,22 @@ Test set: 67 samples
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="6.-Univariate-Polynomial-Regression-Models">6. Univariate Polynomial Regression Models<a class="anchor-link" href="#6.-Univariate-Polynomial-Regression-Models">¶</a></h1>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [613]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_model</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">'R-squared'</span><span class="p">:</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span>
+        <span class="s1">'MAE'</span><span class="p">:</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span>
+        <span class="s1">'MAPE'</span><span class="p">:</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7794,45 +7803,29 @@ Test set: 67 samples
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [584]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [614]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_poly_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
-    <span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">evaluate_model</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s1">'R-squared'</span><span class="p">:</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span>
-        <span class="s1">'MAE'</span><span class="p">:</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span>
-        <span class="s1">'MAPE'</span><span class="p">:</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-    <span class="p">}</span>
-
-<span class="c1"># THE MODEL EXPECTS MULTIPLE FEATURES SO WE CONVERT THE 1D array to a 2D array with only 1 column -&gt; [[x,x2,x3]]</span>
-<span class="n">bmi_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">'bmi'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">bmi_val</span> <span class="o">=</span> <span class="n">X_val</span><span class="p">[</span><span class="s1">'bmi'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">bmi_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">'bmi'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">degree</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
-    <span class="n">X_poly_train</span> <span class="o">=</span> <span class="n">create_poly_features</span><span class="p">(</span><span class="n">bmi_train</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
-    <span class="n">X_poly_val</span> <span class="o">=</span> <span class="n">create_poly_features</span><span class="p">(</span><span class="n">bmi_val</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">display_results_table</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
     
-    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">val_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+    <span class="n">test_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
     
-    <span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly_train</span><span class="p">)</span>
-    <span class="n">y_pred_val</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly_val</span><span class="p">)</span>
+    <span class="n">train_scores</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">train_pred</span><span class="p">)</span>
+    <span class="n">val_scores</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">val_pred</span><span class="p">)</span>
+    <span class="n">test_scores</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
     
-    <span class="n">train_scores</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train</span><span class="p">)</span>
-    <span class="n">val_scores</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred_val</span><span class="p">)</span>
+    <span class="n">table_data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">"Metric"</span><span class="p">,</span> <span class="s2">"Train"</span><span class="p">,</span> <span class="s2">"Validation"</span><span class="p">,</span> <span class="s2">"Test"</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">"R-squared"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">train_scores</span><span class="p">[</span><span class="s1">'R-squared'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">val_scores</span><span class="p">[</span><span class="s1">'R-squared'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">test_scores</span><span class="p">[</span><span class="s1">'R-squared'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">"MAE"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">train_scores</span><span class="p">[</span><span class="s1">'MAE'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">val_scores</span><span class="p">[</span><span class="s1">'MAE'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">test_scores</span><span class="p">[</span><span class="s1">'MAE'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">"MAPE"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">train_scores</span><span class="p">[</span><span class="s1">'MAPE'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">val_scores</span><span class="p">[</span><span class="s1">'MAPE'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">test_scores</span><span class="p">[</span><span class="s1">'MAPE'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span>
+    <span class="p">]</span>
     
-    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-        <span class="s1">'degree'</span><span class="p">:</span> <span class="n">degree</span><span class="p">,</span>
-        <span class="s1">'train_scores'</span><span class="p">:</span> <span class="n">train_scores</span><span class="p">,</span>
-        <span class="s1">'val_scores'</span><span class="p">:</span> <span class="n">val_scores</span>
-    <span class="p">})</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> Results:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">"firstrow"</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">"grid"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -7845,7 +7838,7 @@ Test set: 67 samples
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Univariate-polynomial-regression-on-the-BMI-feature-versus-the-%22disease-progression-one-year-after-baseline%22---from-degree-0-to-5">Univariate polynomial regression on the BMI feature versus the "disease progression one year after baseline" - from degree 0 to 5<a class="anchor-link" href="#Univariate-polynomial-regression-on-the-BMI-feature-versus-the-%22disease-progression-one-year-after-baseline%22---from-degree-0-to-5">¶</a></h1>
+<h1 id="6.-Univariate-Polynomial-Regression-Models">6. Univariate Polynomial Regression Models<a class="anchor-link" href="#6.-Univariate-Polynomial-Regression-Models">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7854,13 +7847,26 @@ Test set: 67 samples
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [585]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [626]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model Comparison:"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-    <span class="n">pprint</span><span class="o">.</span><span class="n">pp</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_poly_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
+    <span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># THE MODEL EXPECTS MULTIPLE FEATURES SO WE CONVERT THE 1D array to a 2D array with only 1 column -&gt; [[x,x2,x3]]</span>
+<span class="n">bmi_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">'bmi'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">bmi_val</span> <span class="o">=</span> <span class="n">X_val</span><span class="p">[</span><span class="s1">'bmi'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">bmi_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">'bmi'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">degree</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="n">X_poly_train</span> <span class="o">=</span> <span class="n">create_poly_features</span><span class="p">(</span><span class="n">bmi_train</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+    <span class="n">X_poly_val</span> <span class="o">=</span> <span class="n">create_poly_features</span><span class="p">(</span><span class="n">bmi_val</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+    <span class="n">X_poly_test</span> <span class="o">=</span> <span class="n">create_poly_features</span><span class="p">(</span><span class="n">bmi_test</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+    
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">display_results_table</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_poly_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_poly_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_poly_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Polynomial (degree </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7874,63 +7880,84 @@ Test set: 67 samples
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
-Model Comparison:
-{'degree': 0,
- 'train_scores': {'R-squared': 0.0,
-                  'MAE': 66.54820936639118,
-                  'MAPE': 0.6335207043271109},
- 'val_scores': {'R-squared': -1.0693145002571569e-05,
-                'MAE': 63.44747474747474,
-                'MAPE': 0.5879328348160793}}
+Polynomial (degree 0) Results:
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0      |      -0      | -0.007  |
++-----------+---------+--------------+---------+
+| MAE       | 66.5482 |      63.4475 | 64.1703 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.6335 |       0.5879 |  0.6122 |
++-----------+---------+--------------+---------+
 
+Polynomial (degree 1) Results:
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.3542 |       0.4493 |  0.2038 |
++-----------+---------+--------------+---------+
+| MAE       | 52.2781 |      41.9976 | 54.9337 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.4846 |       0.4044 |  0.4875 |
++-----------+---------+--------------+---------+
 
-{'degree': 1,
- 'train_scores': {'R-squared': 0.3542402813070956,
-                  'MAE': 52.27806426476099,
-                  'MAPE': 0.4846238354833972},
- 'val_scores': {'R-squared': 0.44929185775557345,
-                'MAE': 41.997580714406034,
-                'MAPE': 0.40444999493556427}}
+Polynomial (degree 2) Results:
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.3548 |       0.4492 |  0.2002 |
++-----------+---------+--------------+---------+
+| MAE       | 52.2673 |      41.7577 | 54.9755 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.4845 |       0.4031 |  0.4873 |
++-----------+---------+--------------+---------+
 
+Polynomial (degree 3) Results:
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.355  |       0.4473 |  0.2069 |
++-----------+---------+--------------+---------+
+| MAE       | 52.2234 |      41.741  | 54.6291 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.4836 |       0.4026 |  0.4854 |
++-----------+---------+--------------+---------+
 
-{'degree': 2,
- 'train_scores': {'R-squared': 0.35477113590009435,
-                  'MAE': 52.2672725317622,
-                  'MAPE': 0.4844785830661222},
- 'val_scores': {'R-squared': 0.4491578713738035,
-                'MAE': 41.75768313647103,
-                'MAPE': 0.4030993827266156}}
+Polynomial (degree 4) Results:
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.358  |       0.4491 |  0.1698 |
++-----------+---------+--------------+---------+
+| MAE       | 51.9444 |      41.9528 | 55.009  |
++-----------+---------+--------------+---------+
+| MAPE      |  0.4796 |       0.4024 |  0.4815 |
++-----------+---------+--------------+---------+
 
-
-{'degree': 3,
- 'train_scores': {'R-squared': 0.3550022034198167,
-                  'MAE': 52.223374945904986,
-                  'MAPE': 0.4835641976825252},
- 'val_scores': {'R-squared': 0.4472908306999015,
-                'MAE': 41.74104216919874,
-                'MAPE': 0.4025896096450979}}
-
-
-{'degree': 4,
- 'train_scores': {'R-squared': 0.35798317273556646,
-                  'MAE': 51.94437186248093,
-                  'MAPE': 0.47963501203797154},
- 'val_scores': {'R-squared': 0.4490642716991273,
-                'MAE': 41.95284559255472,
-                'MAPE': 0.4024064248521406}}
-
-
-{'degree': 5,
- 'train_scores': {'R-squared': 0.3589096310696145,
-                  'MAE': 51.813830399087315,
-                  'MAPE': 0.47831494355296944},
- 'val_scores': {'R-squared': 0.45351339915561306,
-                'MAE': 42.08340001533358,
-                'MAPE': 0.4034047458217701}}
-
-
+Polynomial (degree 5) Results:
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.3589 |       0.4535 |  0.1973 |
++-----------+---------+--------------+---------+
+| MAE       | 51.8138 |      42.0834 | 54.5484 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.4783 |       0.4034 |  0.4788 |
++-----------+---------+--------------+---------+
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Univariate-polynomial-regression-on-the-BMI-feature-versus-the-%22disease-progression-one-year-after-baseline%22---from-degree-0-to-5">Univariate polynomial regression on the BMI feature versus the "disease progression one year after baseline" - from degree 0 to 5<a class="anchor-link" href="#Univariate-polynomial-regression-on-the-BMI-feature-versus-the-%22disease-progression-one-year-after-baseline%22---from-degree-0-to-5">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7977,7 +8004,7 @@ Model Comparison:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [586]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [617]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">chosen_best_model</span> <span class="o">=</span> <span class="mi">4</span>
@@ -8018,7 +8045,7 @@ Test Set Performance:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [587]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [618]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -8058,7 +8085,7 @@ Test Set Performance:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [588]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [619]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">coef_</span>
@@ -8106,7 +8133,7 @@ y = 153.38 + 0.00 * x^1 + 1157.17 * x^2 + -1200.89 * x^3 + -43541.35 * x^4 + 340
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [589]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [620]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">chosen_bmi</span> <span class="o">=</span> <span class="mf">0.02</span>  <span class="c1"># scaled BMI value</span>
@@ -8149,7 +8176,7 @@ For a scaled BMI value of 0.02, the predicted diabetes progression is: 175.75
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [590]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [621]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
@@ -8222,7 +8249,7 @@ Feature Names: ['1' 'x' 'x^2' 'x^3' 'x^4' 'x^5']
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [591]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [622]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Print model results</span>
@@ -8257,7 +8284,7 @@ Feature Names: ['1' 'x' 'x^2' 'x^3' 'x^4' 'x^5']
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [592]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [623]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">select_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
@@ -8302,7 +8329,7 @@ Feature Names: ['1' 'x' 'x^2' 'x^3' 'x^4' 'x^5']
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [593]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [624]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Polynomial Models</span>
@@ -8313,17 +8340,17 @@ Feature Names: ['1' 'x' 'x^2' 'x^3' 'x^4' 'x^5']
     <span class="n">X_poly_test</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">selected_features</span><span class="p">])</span>
     
     <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-    <span class="n">print_results</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_poly_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_poly_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_poly_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Polynomial (degree </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+    <span class="n">display_results_table</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_poly_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_poly_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_poly_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Polynomial (degree </span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 
 <span class="c1"># Decision Trees</span>
 <span class="k">for</span> <span class="n">max_depth</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-    <span class="n">print_results</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Decision Tree (max_depth=</span><span class="si">{</span><span class="n">max_depth</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+    <span class="n">display_results_table</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Decision Tree (max_depth=</span><span class="si">{</span><span class="n">max_depth</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 
 <span class="c1"># k-Nearest Neighbors</span>
 <span class="k">for</span> <span class="n">n_neighbors</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]:</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">)</span>
-    <span class="n">print_results</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"KNN (n_neighbors=</span><span class="si">{</span><span class="n">n_neighbors</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+    <span class="n">display_results_table</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">[</span><span class="n">selected_features</span><span class="p">],</span> <span class="n">y_test</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"KNN (n_neighbors=</span><span class="si">{</span><span class="n">n_neighbors</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8338,88 +8365,70 @@ Feature Names: ['1' 'x' 'x^2' 'x^3' 'x^4' 'x^5']
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
 Polynomial (degree 1) Results:
-Train Scores:
-  R-squared: 0.4747
-  MAE: 47.0037
-  MAPE: 0.4198
-Validation Scores:
-  R-squared: 0.5869
-  MAE: 38.8494
-  MAPE: 0.3888
-Test Scores:
-  R-squared: 0.4330
-  MAE: 45.0261
-  MAPE: 0.4016
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.4747 |       0.5869 |  0.433  |
++-----------+---------+--------------+---------+
+| MAE       | 47.0037 |      38.8494 | 45.0261 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.4198 |       0.3888 |  0.4016 |
++-----------+---------+--------------+---------+
 
 Polynomial (degree 2) Results:
-Train Scores:
-  R-squared: 0.5083
-  MAE: 45.3750
-  MAPE: 0.3987
-Validation Scores:
-  R-squared: 0.5374
-  MAE: 41.7349
-  MAPE: 0.4152
-Test Scores:
-  R-squared: 0.3972
-  MAE: 45.8640
-  MAPE: 0.4089
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.5083 |       0.5374 |  0.3972 |
++-----------+---------+--------------+---------+
+| MAE       | 45.375  |      41.7349 | 45.864  |
++-----------+---------+--------------+---------+
+| MAPE      |  0.3987 |       0.4152 |  0.4089 |
++-----------+---------+--------------+---------+
 
 Decision Tree (max_depth=4) Results:
-Train Scores:
-  R-squared: 0.5953
-  MAE: 40.2865
-  MAPE: 0.3531
-Validation Scores:
-  R-squared: 0.3809
-  MAE: 43.3515
-  MAPE: 0.4248
-Test Scores:
-  R-squared: 0.2809
-  MAE: 49.2777
-  MAPE: 0.4191
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.5953 |       0.3809 |  0.2809 |
++-----------+---------+--------------+---------+
+| MAE       | 40.2865 |      43.3515 | 49.2777 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.3531 |       0.4248 |  0.4191 |
++-----------+---------+--------------+---------+
 
 Decision Tree (max_depth=5) Results:
-Train Scores:
-  R-squared: 0.6767
-  MAE: 34.8553
-  MAPE: 0.3095
-Validation Scores:
-  R-squared: 0.2817
-  MAE: 43.9477
-  MAPE: 0.4446
-Test Scores:
-  R-squared: 0.1402
-  MAE: 51.9663
-  MAPE: 0.4384
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.6767 |       0.2817 |  0.1402 |
++-----------+---------+--------------+---------+
+| MAE       | 34.8553 |      43.9477 | 51.9663 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.3095 |       0.4446 |  0.4384 |
++-----------+---------+--------------+---------+
 
 KNN (n_neighbors=10) Results:
-Train Scores:
-  R-squared: 0.4935
-  MAE: 45.0491
-  MAPE: 0.3849
-Validation Scores:
-  R-squared: 0.6024
-  MAE: 36.7889
-  MAPE: 0.3674
-Test Scores:
-  R-squared: 0.4421
-  MAE: 43.2478
-  MAPE: 0.3845
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.4935 |       0.6024 |  0.4421 |
++-----------+---------+--------------+---------+
+| MAE       | 45.0491 |      36.7889 | 43.2478 |
++-----------+---------+--------------+---------+
+| MAPE      |  0.3849 |       0.3674 |  0.3845 |
++-----------+---------+--------------+---------+
 
 KNN (n_neighbors=11) Results:
-Train Scores:
-  R-squared: 0.4905
-  MAE: 45.2857
-  MAPE: 0.3874
-Validation Scores:
-  R-squared: 0.5770
-  MAE: 37.7818
-  MAPE: 0.3775
-Test Scores:
-  R-squared: 0.4618
-  MAE: 42.6920
-  MAPE: 0.3861
++-----------+---------+--------------+---------+
+| Metric    |   Train |   Validation |    Test |
++===========+=========+==============+=========+
+| R-squared |  0.4905 |       0.577  |  0.4618 |
++-----------+---------+--------------+---------+
+| MAE       | 45.2857 |      37.7818 | 42.692  |
++-----------+---------+--------------+---------+
+| MAPE      |  0.3874 |       0.3775 |  0.3861 |
++-----------+---------+--------------+---------+
 </pre>
 </div>
 </div>
